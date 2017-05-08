@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>闭包</title>
+</head>
+<body>
+	* 闭包概念：函数内部声明函数，在函数外部调用一些函数。私有化一些函数不让外部访问
+	* 代码分散 阅读性较差只是体现了闭包的概念。eg1
+	* js插件做法 未实现闭包 代码可读性较好
+	<script type="text/javascript">
+		//匿名函数自调用
+		//eg1********************************************
+		/* (function(){
+			function Person(){
+				return {
+					init : init,
+					getUsername : getUsername,
+				}
+			}
+			var username,password;
+			function setUsername(name){
+				username = name;
+			}
+			function getUsername(){
+				return username;
+			}
+			function setPassword(pass){
+				password = pass;
+			}
+			function getPassword(){
+				return password;
+			}
+			function init(name,pass){
+				setUsername(name);
+				setPassword(pass);
+			}
+			window.Person = Person;
+		})();
+		
+		var zhangh = new Person();
+		zhangh.init('zhanghua','123456');
+		alert(zhangh.getUsername());alert(zhangh.getPassword()); */
+		
+		//eg2*********************************************************
+		//匿名函数自调用
+		(function(){
+			function Person(){
+				data = {
+						username : '',password : ''
+				}
+				method = {
+					getUsername : function(){
+						return data.username;
+					},
+					setUsername : function(name){
+						data.username = name;
+					},
+					getPassword : function(){
+						return data.password;
+					},
+					setPassword : function(pass){
+						data.password = pass
+					}
+				}
+				init = {
+					//暴露外面的api
+					setUsername : method.setUsername,
+					getUsername : method.getUsername
+				}
+				//暴露api
+				return init;
+			}
+			window.Person = Person;
+		})();
+		var zhangh = new Person();
+		zhangh.setUsername("zhang");
+		alert(zhangh.getUsername());
+	</script>
+</body>
+</html>
