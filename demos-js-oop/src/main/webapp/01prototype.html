@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--    * js原型prototype
+			* 哪里能使用原型
+				* js对象无原型
+				* function对象有原型
+					* function Person(); var zhangh = new Person();
+			* 声明方式 可以将prototype指向一个对象。可以分开声明或一起声明 eg3
+				* 块级声明要在'对象'实例化之前赋值原型，分开写则没有要求
+			* 块级声名会覆盖原有原型 -->
+			
+	<script type="text/javascript">
+		//eg1******************************************************
+		/* var person = {
+			username : '张华',
+			age : 25,
+			sayHello : function(){
+				alert('I am zhanghua!');
+			}
+		} */
+		//alert(person.username);
+		//错误示例 jsonObj 没有原型 prototype 函数对象才有
+		//person.prototype.sex = '男';
+		//alert(person.sex);
+		
+		
+		//eg2******************************************************
+		/* function Person(){
+			this.username = '张华';
+			this.age = 25;
+			this.sayHello = function(){
+				alert('I am zhanghua!');	
+			}
+		}
+		
+		var zhangh = new Person();
+		alert(zhangh.username);
+		//函数对象原型 赋值  引用关系
+		Person.prototype.sex = '男';
+		alert(zhangh.sex);
+		zhangh.sayHello(); */
+		
+		//eg3******************************************************
+		function Person(){
+			this.username = '张华';
+			this.age = 25;
+			this.sayHello = function(){
+				alert('I am zhanghua!');	
+			}
+		}
+		Person.prototype = {
+				sex : '女',
+				age : 26
+		}
+		var zhangh = new Person();
+		alert(zhangh.sex);
+		alert(zhangh.age);
+	</script>
+</body>
+</html>
