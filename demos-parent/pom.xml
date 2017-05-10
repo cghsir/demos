@@ -1,22 +1,66 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <artifactId>demos-parent</artifactId>
-  <groupId>com.cghsir</groupId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  <dependencies>
-  	<dependency>
-  		<artifactId>demos</artifactId>
-  		<groupId>com.cghsir</groupId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
-  
-  
-  <dependencyManagement>
-  	
-  </dependencyManagement>
-  
-  
-  <packaging>pom</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>demos-parent</artifactId>
+	<groupId>com.cghsir</groupId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<dependencies>
+		<dependency>
+			<artifactId>demos</artifactId>
+			<groupId>com.cghsir</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<!--
+		 其他工程继承此工程引用jar 此pom管理所有jar及版本,
+	 	版本由properties统一管理,
+	 	eg:在需要引用的pom里直接引用.
+	 	<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+			</dependency>
+		</dependencies>
+	 -->
+	
+	<dependencyManagement>
+		<dependencies>
+			<!-- spring context -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${springframework.version}</version>
+			</dependency>
+			<!-- spring bean -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${springframework.version}</version>
+				<type>jar</type>
+			</dependency>
+			<!-- spring mvc -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${springframework.version}</version>
+				<type>jar</type>
+			</dependency>
+			<!-- spring orm -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${springframework.version}</version>
+				<type>jar</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- maven dependencies version -->
+	<properties>
+		<springframework.version>4.3.1.RELEASE</springframework.version>
+	</properties>
+
 </project>
