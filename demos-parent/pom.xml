@@ -18,4 +18,5 @@
   </dependencyManagement>
   
   
+  <packaging>pom</packaging>
 </project>
