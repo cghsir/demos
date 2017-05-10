@@ -55,12 +55,20 @@
 				<version>${springframework.version}</version>
 				<type>jar</type>
 			</dependency>
+			
+			<!--dubbo-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<!-- maven dependencies version -->
 	<properties>
 		<springframework.version>4.3.1.RELEASE</springframework.version>
+		<dubbo.version>2.5.3</dubbo.version>
 	</properties>
 
 </project>
