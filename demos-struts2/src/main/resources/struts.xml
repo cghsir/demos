@@ -4,5 +4,12 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <!-- 此文件头部可以在struts2-core.jar中 参考 struts-default.xml -->
 <struts>
-
+	<!-- 
+		   namespace 为action url前缀
+	 -->
+	<package name="Demo" namespace="/" extends="struts-default">
+		<action name="demoAction_*" method="{1}" class="com.cghsir.actions.DemoAction">
+			<result name="success">index.jsp</result>
+		</action>
+	</package>
 </struts>

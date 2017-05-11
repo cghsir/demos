@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	首页
+	首页 欢迎${user }
 </body>
 </html>
