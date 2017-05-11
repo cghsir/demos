@@ -12,16 +12,8 @@
 			<groupId>com.cghsir</groupId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<!-- 作用于为测试 scope默认为编译级别 compile -->
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
-
+	
 	<!--
 		 其他工程继承此工程引用jar 此pom管理所有jar及版本,
 	 	版本由properties统一管理,
@@ -36,6 +28,15 @@
 	
 	<dependencyManagement>
 		<dependencies>
+			<!-- junit4 -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<!-- 作用于为测试 scope默认为编译级别 compile -->
+				<scope>test</scope>
+			</dependency>
+			
 			<!-- spring context -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -83,7 +84,15 @@
 				<groupId>javassist</groupId>
 				<artifactId>javassist</artifactId>
 				<version>${javassist.version}</version>
-			</dependency> 
+			</dependency>
+			
+			<!-- servlet -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servlet.version}</version>
+				<scope>provided</scope>
+			</dependency>
             
 		</dependencies>
 	</dependencyManagement>
@@ -94,6 +103,8 @@
 		<dubbo.version>2.5.3</dubbo.version>
 		<struts.version>2.3.1.2</struts.version>
 		<javassist.version>3.12.1.GA</javassist.version>
+		<servlet.version>2.5</servlet.version>
+		<junit.version>4.11</junit.version>
 	</properties>
 
 </project>
