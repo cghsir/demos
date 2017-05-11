@@ -7,7 +7,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<!-- 
 			1.将父工程maven>install到仓库
-			2.<relativePath></relativePath> 写到下放才可以 编译子项目
+			2.<relativePath></relativePath> 写到下方才可以 编译子项目
 		 -->
 		<relativePath></relativePath>
 	</parent>
@@ -28,12 +28,25 @@
 			<groupId>javassist</groupId>
 			<artifactId>javassist</artifactId>
 		</dependency>
-		
+
+		<!-- servlet -->
 		<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>servlet-api</artifactId>
-				<scope>provided</scope>
-			</dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	
+		<!-- jstl支持 -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+	
+		<!-- jstl tag依赖 -->
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+		</dependency>
 	</dependencies>
 	
 	<build>

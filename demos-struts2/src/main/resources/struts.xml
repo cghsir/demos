@@ -10,6 +10,7 @@
 	<package name="Demo" namespace="/" extends="struts-default">
 		<action name="demoAction_*" method="{1}" class="com.cghsir.actions.DemoAction">
 			<result name="success">index.jsp</result>
+			<result name="modelDriven">modelDriven.jsp</result>
 		</action>
 	</package>
 </struts>
