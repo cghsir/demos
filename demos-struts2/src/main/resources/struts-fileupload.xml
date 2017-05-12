@@ -7,12 +7,9 @@
 	<!-- 
 		   namespace 为action url前缀
 	 -->
-	<package name="Demo" namespace="/" extends="struts-default">
-		<action name="demoAction_*" method="{1}" class="com.cghsir.actions.DemoAction">
-			<result name="success">index.jsp</result>
-			<result name="modelDriven">modelDriven.jsp</result>
+	<package name="upload" namespace="/" extends="struts-default">
+		<action name="upload_*" method="{1}" class="com.cghsir.actions.UploadAction">
+			<result name="success">/WEB-INF/fileupload/fileUpload.jsp</result>
 		</action>
 	</package>
-	
-	<include file="struts-fileupload.xml" />
 </struts>
